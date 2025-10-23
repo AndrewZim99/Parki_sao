@@ -1,4 +1,3 @@
-// types/index.ts
 export interface Coordinates {
     lat: number;
     lng: number;
@@ -20,7 +19,7 @@ export interface Park {
     toilets: string;
     children_room: string;
     geometry: {
-        coordinates: [[[[number, number][]]]];
+        coordinates: [number, number][][][];
         type: string;
     };
 }

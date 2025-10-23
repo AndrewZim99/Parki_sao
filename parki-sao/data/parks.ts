@@ -14,7 +14,15 @@ export const parks: Park[] = [
         toilets: "2",
         children_room: "1",
         geometry: {
-            coordinates: [[[[55.87951, 37.45639], [55.87767, 37.45098], [55.87413, 37.4548], [55.87503, 37.45576], [55.87778, 37.45666], [55.87903, 37.45696], [55.87951, 37.45639]]]],
+            coordinates: [[[
+                [55.87951, 37.45639] as [number, number],
+                [55.87767, 37.45098] as [number, number],
+                [55.87413, 37.4548] as [number, number],
+                [55.87503, 37.45576] as [number, number],
+                [55.87778, 37.45666] as [number, number],
+                [55.87903, 37.45696] as [number, number],
+                [55.87951, 37.45639] as [number, number]
+            ]]],
             type: "MultiPolygon"
         }
     },
@@ -29,7 +37,17 @@ export const parks: Park[] = [
         toilets: "0",
         children_room: "0",
         geometry: {
-            coordinates: [[[[55.87561, 37.50488], [55.87437, 37.50625], [55.87433, 37.50649], [55.87454, 37.50698], [55.8776, 37.5109], [55.8777, 37.50932], [55.87735, 37.50846], [55.87764, 37.5077], [55.87561, 37.50488]]]],
+            coordinates: [[[
+                [55.87561, 37.50488] as [number, number],
+                [55.87437, 37.50625] as [number, number],
+                [55.87433, 37.50649] as [number, number],
+                [55.87454, 37.50698] as [number, number],
+                [55.8776, 37.5109] as [number, number],
+                [55.8777, 37.50932] as [number, number],
+                [55.87735, 37.50846] as [number, number],
+                [55.87764, 37.5077] as [number, number],
+                [55.87561, 37.50488] as [number, number]
+            ]]],
             type: "MultiPolygon"
         }
     },
