@@ -68,16 +68,18 @@ export default function Home() {
     };
 
     return (
-        <main className="relative w-full h-screen overflow-hidden">
-            <MapComponent
-                parks={parks}
-                facilities={facilities}
-                selectedDistricts={selectedDistricts}
-                selectedCategories={selectedCategories}
-                selectedParks={selectedParks}
-                districtCoordinates={districts}
-                onPlacemarkClick={handlePlacemarkClick}
-            />
+        <>
+            <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0 }}>
+                <MapComponent
+                    parks={parks}
+                    facilities={facilities}
+                    selectedDistricts={selectedDistricts}
+                    selectedCategories={selectedCategories}
+                    selectedParks={selectedParks}
+                    districtCoordinates={districts}
+                    onPlacemarkClick={handlePlacemarkClick}
+                />
+            </div>
 
             <Controls
                 districts={districtNames}
@@ -97,6 +99,6 @@ export default function Home() {
                 imageSrc={modalImage}
                 onClose={() => setIsModalOpen(false)}
             />
-        </main>
+        </>
     );
 }

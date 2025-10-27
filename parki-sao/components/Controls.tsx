@@ -32,80 +32,156 @@ export default function Controls({
 
     return (
         <div
-            className={`fixed top-2 right-2 bg-white/95 p-2 z-[1000] border border-gray-300 rounded-lg shadow-lg max-w-[160px] transition-all ${
-                isCollapsed ? 'max-h-[40px] overflow-hidden' : 'max-h-[80vh] overflow-y-auto'
-            }`}
+            style={{
+                position: 'fixed',
+                top: '10px',
+                right: '10px',
+                backgroundColor: 'white',
+                padding: '10px',
+                border: '2px solid #333',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)',
+                maxWidth: '180px',
+                zIndex: 10000,
+                maxHeight: isCollapsed ? '60px' : '85vh',
+                overflowY: isCollapsed ? 'hidden' : 'auto',
+                transition: 'max-height 0.3s ease',
+            }}
         >
             <button
                 onClick={() => setIsCollapsed(!isCollapsed)}
-                className="w-full px-2 py-2 bg-gray-200 border-none rounded cursor-pointer text-center text-sm mb-2 hover:bg-gray-300"
+                style={{
+                    width: '100%',
+                    padding: '10px',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    marginBottom: isCollapsed ? '0' : '10px',
+                }}
             >
-                {isCollapsed ? 'Развернуть панель' : 'Свернуть панель'}
+                {isCollapsed ? '☰ Фильтры' : '✕ Свернуть'}
             </button>
 
             {!isCollapsed && (
-                <>
+                <div>
                     <button
                         onClick={onResetAll}
-                        className="w-full my-1 block px-2 py-2 text-sm border border-gray-300 rounded bg-gray-100 cursor-pointer hover:bg-gray-200"
+                        style={{
+                            width: '100%',
+                            margin: '5px 0',
+                            padding: '8px',
+                            fontSize: '12px',
+                            border: '1px solid #d1d5db',
+                            borderRadius: '4px',
+                            backgroundColor: '#f87171',
+                            color: 'white',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                        }}
                     >
-                        Сбросить все выборки
+                        Сбросить всё
                     </button>
 
                     {/* Районы */}
-                    <div className="mt-2">
-                        <h3 className="my-2 text-sm font-bold text-gray-800 border-b border-gray-300 pb-1">
+                    <div style={{ marginTop: '10px' }}>
+                        <h3 style={{
+                            margin: '8px 0',
+                            fontSize: '13px',
+                            fontWeight: 'bold',
+                            color: '#1f2937',
+                            borderBottom: '2px solid #4CAF50',
+                            paddingBottom: '4px'
+                        }}>
                             Районы САО
                         </h3>
                         {districts.map((district) => (
-                            <label key={district} className="flex items-center my-1 pl-2 text-sm">
+                            <label key={district} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '6px 0',
+                                paddingLeft: '4px',
+                                fontSize: '12px',
+                                cursor: 'pointer'
+                            }}>
                                 <input
                                     type="checkbox"
                                     checked={selectedDistricts.includes(district)}
                                     onChange={() => onDistrictToggle(district)}
-                                    className="mr-2 w-4 h-4"
+                                    style={{ marginRight: '6px', width: '16px', height: '16px', cursor: 'pointer' }}
                                 />
-                                {district}
+                                <span>{district}</span>
                             </label>
                         ))}
                     </div>
 
                     {/* Категории */}
-                    <div className="mt-2">
-                        <h3 className="my-2 text-sm font-bold text-gray-800 border-b border-gray-300 pb-1">
+                    <div style={{ marginTop: '10px' }}>
+                        <h3 style={{
+                            margin: '8px 0',
+                            fontSize: '13px',
+                            fontWeight: 'bold',
+                            color: '#1f2937',
+                            borderBottom: '2px solid #4CAF50',
+                            paddingBottom: '4px'
+                        }}>
                             Категории
                         </h3>
                         {categories.map(({ key, name }) => (
-                            <label key={key} className="flex items-center my-1 pl-2 text-sm">
+                            <label key={key} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '6px 0',
+                                paddingLeft: '4px',
+                                fontSize: '12px',
+                                cursor: 'pointer'
+                            }}>
                                 <input
                                     type="checkbox"
                                     checked={selectedCategories.includes(key)}
                                     onChange={() => onCategoryToggle(key)}
-                                    className="mr-2 w-4 h-4"
+                                    style={{ marginRight: '6px', width: '16px', height: '16px', cursor: 'pointer' }}
                                 />
-                                {name}
+                                <span>{name}</span>
                             </label>
                         ))}
                     </div>
 
                     {/* Парки */}
-                    <div className="mt-2">
-                        <h3 className="my-2 text-sm font-bold text-gray-800 border-b border-gray-300 pb-1">
+                    <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                        <h3 style={{
+                            margin: '8px 0',
+                            fontSize: '13px',
+                            fontWeight: 'bold',
+                            color: '#1f2937',
+                            borderBottom: '2px solid #4CAF50',
+                            paddingBottom: '4px'
+                        }}>
                             Парки САО
                         </h3>
                         {parks.map((park) => (
-                            <label key={park} className="flex items-center my-1 pl-2 text-sm">
+                            <label key={park} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                margin: '6px 0',
+                                paddingLeft: '4px',
+                                fontSize: '12px',
+                                cursor: 'pointer'
+                            }}>
                                 <input
                                     type="checkbox"
                                     checked={selectedParks.includes(park)}
                                     onChange={() => onParkToggle(park)}
-                                    className="mr-2 w-4 h-4"
+                                    style={{ marginRight: '6px', width: '16px', height: '16px', cursor: 'pointer' }}
                                 />
-                                {park}
+                                <span>{park}</span>
                             </label>
                         ))}
                     </div>
-                </>
+                </div>
             )}
         </div>
     );
